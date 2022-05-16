@@ -43,4 +43,5 @@ public class VisitorTest {
         visitor.addAttraction(dodgems);
         assertEquals(1, visitor.getVisitedAttractions().size());
     }
+
 }

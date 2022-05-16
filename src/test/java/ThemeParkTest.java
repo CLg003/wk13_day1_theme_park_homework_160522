@@ -2,6 +2,7 @@ import attractions.Dodgems;
 import attractions.Playground;
 import org.junit.Before;
 import org.junit.Test;
+import people.Visitor;
 import stalls.CandyflossStall;
 import stalls.IceCreamStall;
 import stalls.ParkingSpot;
@@ -15,6 +16,7 @@ public class ThemeParkTest {
     Playground playground;
     CandyflossStall candyflossStall;
     IceCreamStall iceCreamStall;
+    Visitor visitor1;
 
     @Before
     public void before(){
@@ -23,6 +25,7 @@ public class ThemeParkTest {
         playground = new Playground("Pirate Adventure", 9);
         candyflossStall = new CandyflossStall("Cloud Candy", "Jill", ParkingSpot.A1, 8);
         iceCreamStall = new IceCreamStall("N-ice Cream", "Robert", ParkingSpot.B1, 7);
+        visitor1 = new Visitor(13, 170, 15.00);
     }
 
     @Test
@@ -38,4 +41,18 @@ public class ThemeParkTest {
         themePark.addToAllReviewed(iceCreamStall);
         assertEquals(4, themePark.getAllReviewed().size());
     }
+
+    @Test
+    public void canIncrementAttractionVisitCount(){
+        themePark.visit(visitor1, dodgems);
+        assertEquals(1, dodgems.getVisitCount());
+    }
+
+    @Test
+    public void canAddAtractionToVisitedAttractionsList(){
+        themePark.visit(visitor1, dodgems);
+        assertEquals(1, visitor1.getVisitedAttractions().size());
+    }
+
+
 }

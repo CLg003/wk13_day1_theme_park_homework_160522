@@ -49,4 +49,10 @@ public class DodgemTest {
     public void willChargeDefaultPriceToVisitorAge12Plus(){
         assertEquals(4.50, dodgems.priceFor(visitor2), 0.0);
     }
+
+    @Test
+    public void canIncrementVisitCount(){
+        dodgems.incrementVisitCount();
+        assertEquals(1, dodgems.getVisitCount());
+    }
 }
