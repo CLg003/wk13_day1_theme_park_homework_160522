@@ -13,6 +13,7 @@ public class RollercoasterTest {
     Visitor visitor2;
     Visitor visitor3;
     Visitor visitor4;
+    Visitor visitor5;
 
     @Before
     public void setUp() {
@@ -20,7 +21,8 @@ public class RollercoasterTest {
         visitor1 = new Visitor(12, 150, 9.50);
         visitor2 = new Visitor(8, 115, 3.75 );
         visitor3 = new Visitor(13, 140, 12.50);
-        visitor4 = new Visitor(11, 155, 4.50);
+        visitor4 = new Visitor(10, 165, 3.50);
+        visitor5 = new Visitor(19, 205, 20.00);
     }
 
     @Test
@@ -56,5 +58,20 @@ public class RollercoasterTest {
     @Test
     public void isNotAllowedToRideRollercoasterIfOverMinimumHeightButUnderMinimumAge(){
         assertEquals(false, rollerCoaster.isAllowedTo(visitor4));
+    }
+
+    @Test
+    public void canReturnDefaultPrice(){
+        assertEquals(8.40, rollerCoaster.defaultPrice(), 0.0);
+    }
+
+    @Test
+    public void willChargeDoubleForVisitorsOver200Height(){
+        assertEquals(16.80, rollerCoaster.priceFor(visitor5), 0.0);
+    }
+
+    @Test
+    public void willChargeDefaultPriceForVisitorsUnder200Height(){
+        assertEquals(8.40, rollerCoaster.priceFor(visitor3));
     }
 }
