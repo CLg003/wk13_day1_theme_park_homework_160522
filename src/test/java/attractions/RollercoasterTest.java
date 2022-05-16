@@ -72,6 +72,6 @@ public class RollercoasterTest {
 
     @Test
     public void willChargeDefaultPriceForVisitorsUnder200Height(){
-        assertEquals(8.40, rollerCoaster.priceFor(visitor3));
+        assertEquals(8.40, rollerCoaster.priceFor(visitor3), 0.0);
     }
 }
