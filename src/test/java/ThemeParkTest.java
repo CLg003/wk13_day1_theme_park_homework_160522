@@ -54,5 +54,11 @@ public class ThemeParkTest {
         assertEquals(1, visitor1.getVisitedAttractions().size());
     }
 
+    @Test
+    public void canReturnHashMapOfReviews(){
+        themePark.addToAllReviewed(dodgems);
+        themePark.addToAllReviewed(candyflossStall);
+        assertEquals(2, themePark.getReviewDetails().size());
+    }
 
 }
